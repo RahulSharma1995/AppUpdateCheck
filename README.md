@@ -3,7 +3,7 @@
 AppVersionCheckManager.shared.showUpdateView { status in
 
       if status {
-          // do Somthing.
+          // do Something.
       }
 	  
   }
