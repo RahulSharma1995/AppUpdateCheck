@@ -51,7 +51,6 @@ class AppVersionCheckManager {
             getVersionInfo()
                 .tryMap({ info -> Bool in
                     return info.version > currentVersion
-//                    return  "2.3.9" > "2.4"
                 })
                 .receive(on: RunLoop.main)
                 .sink { completion in
@@ -87,13 +86,10 @@ class AppVersionCheckManager {
                     if case let .failure(error) = completion {
                         switch error {
                         case let decodingError as DecodingError:
-                            print("")
                             promise(.failure(decodingError))
                         case let apiError as NetworkError:
-                            print("")
                             promise(.failure(apiError))
                         default:
-                            print("")
                             promise(.failure(NetworkError.unknown))
                         }
                     }
